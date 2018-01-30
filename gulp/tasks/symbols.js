@@ -1,10 +1,13 @@
 import gulp from 'gulp';
 import svgmin from 'gulp-svgmin';
 import svgstore from 'gulp-svgstore';
-import rename from 'gulp-rename';
+import inject from 'gulp-inject';
+
+const fileContents = (filePath, file) => file.contents.toString();
 
 function symbols() {
-  return gulp.src('src/assets/img/icons/*.svg')
+  const svgSymbols = gulp
+    .src('src/assets/img/icons/*.svg')
     .pipe(svgmin({
       plugins: [
         { cleanupAttrs: true },
@@ -20,11 +23,12 @@ function symbols() {
         { collapseGroups: true },
       ],
     }))
-    .pipe(svgstore({
-      inlineSvg: true,
-    }))
-    .pipe(rename('symbols.svg'))
-    .pipe(gulp.dest('build/img/icons/'));
+    .pipe(svgstore({ inlineSvg: true }));
+
+  return gulp
+    .src('build/*.html')
+    .pipe(inject(svgSymbols, { transform: fileContents }))
+    .pipe(gulp.dest('build/'));
 }
 
 export default symbols;

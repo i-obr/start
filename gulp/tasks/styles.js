@@ -9,8 +9,8 @@ import atImport from 'postcss-partial-import';
 import cssnext from 'postcss-cssnext';
 import normalize from 'postcss-normalize';
 import fontMagic from 'postcss-font-magician';
-import doiuse from 'doiuse';
-import report from 'postcss-browser-reporter';
+// import doiuse from 'doiuse';
+// import report from 'postcss-browser-reporter';
 import cssnano from 'gulp-cssnano';
 import mqpacker from 'css-mqpacker';
 import sourcemaps from 'gulp-sourcemaps';
@@ -30,24 +30,6 @@ function styles() {
     }) }))
     .pipe(gulpif(isDev, sourcemaps.init()))
     .pipe(postcss([
-      doiuse({
-        ignoreFiles: ['**/normalize.css'],
-        onFeatureUsage: usageInfo => console.log(usageInfo.message),
-      }),
-      report({
-        styles: {
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          display: 'block',
-          background: '#ce5050',
-          padding: '20px',
-          color: 'white',
-          'font-family': 'sans-serif',
-          'font-size': '16px',
-          'text-align': 'left',
-        },
-      }),
       atImport,
       normalize,
       cssnext,
