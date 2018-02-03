@@ -6,17 +6,13 @@ import njkRender from 'gulp-nunjucks-render';
 import plumber from 'gulp-plumber';
 import prettify from 'gulp-prettify';
 import frontMatter from 'gulp-front-matter';
-import notify from 'gulp-notify';
+import errorHandler from '../util/errorHandler';
 
 function templates() {
   return gulp.src('src/html/**/[^_]*.html')
-    .pipe(plumber({ errorHandler: notify.onError((err) => {
-      return {
-        title: 'templates',
-        message: err.message,
-        sound: 'Submarine',
-      };
-    }) }))
+    .pipe(plumber({
+      errorHandler: errorHandler,  // eslint-disable-line
+    }))
     .pipe(frontMatter({ property: 'data' }))
     .pipe(njkRender({
       path: ['src/html/'],

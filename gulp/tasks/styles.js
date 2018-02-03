@@ -9,25 +9,19 @@ import atImport from 'postcss-partial-import';
 import cssnext from 'postcss-cssnext';
 import normalize from 'postcss-normalize';
 import fontMagic from 'postcss-font-magician';
-// import doiuse from 'doiuse';
-// import report from 'postcss-browser-reporter';
 import cssnano from 'gulp-cssnano';
 import mqpacker from 'css-mqpacker';
 import sourcemaps from 'gulp-sourcemaps';
 import gulpif from 'gulp-if';
-import notify from 'gulp-notify';
 import plumber from 'gulp-plumber';
+import errorHandler from '../util/errorHandler';
 import isDev from '../config';
 
 function styles() {
   return gulp.src('src/css/app.css')
-    .pipe(plumber({ errorHandler: notify.onError((err) => {
-      return {
-        title: 'styles',
-        message: err.message,
-        sound: 'Submarine',
-      };
-    }) }))
+    .pipe(plumber({
+      errorHandler: errorHandler,  // eslint-disable-line
+    }))
     .pipe(gulpif(isDev, sourcemaps.init()))
     .pipe(postcss([
       atImport,

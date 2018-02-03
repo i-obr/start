@@ -8,8 +8,22 @@ import symbols from './gulp/tasks/symbols';
 import watch from './gulp/tasks/watch';
 import server from './gulp/tasks/server';
 
-const build = gulp.series(clean, gulp.parallel(styles, templates, fonts), images, symbols);
+const build = gulp.series(
+  clean,
+  gulp.parallel(
+    styles,
+    templates,
+    fonts,
+  ),
+  images,
+  symbols,
+);
 
-const dev = gulp.series(build, gulp.parallel(watch, server));
+const dev = gulp.series(
+  build,
+  gulp.parallel(
+    watch,
+    server,
+  ));
 
 export { build, dev };

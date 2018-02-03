@@ -1,4 +1,4 @@
-.visuallyhidden {
+.visually-hidden {
     border: 0;
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
@@ -10,6 +10,7 @@
     width: 1px;
     white-space: nowrap; /* 1 */
 }
+
 
 h1 {
   font-family: 'Alice';
