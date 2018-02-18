@@ -7,6 +7,7 @@ import images from './gulp/tasks/images';
 import symbols from './gulp/tasks/symbols';
 import watch from './gulp/tasks/watch';
 import server from './gulp/tasks/server';
+import webpack from './gulp/tasks/webpack';
 
 const build = gulp.series(
   clean,
@@ -21,9 +22,17 @@ const build = gulp.series(
 
 const dev = gulp.series(
   build,
+  webpack,
   gulp.parallel(
     watch,
     server,
   ));
+
+// const dev = gulp.series(
+//   build,
+//   gulp.parallel(
+//     watch,
+//     server,
+//   ));
 
 export { build, dev };
