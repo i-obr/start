@@ -8,15 +8,18 @@
   padding: 0;
   position: absolute;
   width: 1px;
-  white-space: nowrap; /* 1 */
+  white-space: nowrap; /*1 */
 }
 
 h1 {
-  font-family: 'Alice';
+  font-family: Alice, sans-serif;
   font-weight: 700;
   line-height: 1;
   font-size: 300px;
+
   text-align: center;
+
+  transition-duration: 0.3s;
 }
 
 .autoprefixer {
@@ -25,13 +28,15 @@ h1 {
 }
 
 .cssnext {
-  background: color(red alpha(-10%));
+  background: color(rgb(255, 0, 0) alpha(-10%));
+
+  /* background: blue; */
 }
 
 .precss {
   @if 3 < 5 {
-    background: green;
+    background: #008000;
   } @else {
-    background: blue;
+    background: #00f;
   }
 }
