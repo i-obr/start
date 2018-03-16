@@ -11,22 +11,12 @@ import webpack from './gulp/tasks/webpack';
 
 const build = gulp.series(
   clean,
-  gulp.parallel(
-    styles,
-    templates,
-    fonts,
-  ),
+  gulp.parallel(styles, templates, fonts),
   images,
   symbols,
 );
 
-const dev = gulp.series(
-  build,
-  webpack,
-  gulp.parallel(
-    watch,
-    server,
-  ));
+const dev = gulp.series(build, webpack, gulp.parallel(watch, server));
 
 // const dev = gulp.series(
 //   build,

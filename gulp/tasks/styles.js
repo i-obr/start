@@ -18,24 +18,29 @@ import errorHandler from '../util/errorHandler';
 import isDev from '../config';
 
 function styles() {
-  return gulp.src('src/css/app.css')
-    .pipe(plumber({
-      errorHandler: errorHandler,  // eslint-disable-line
-    }))
+  return gulp
+    .src('src/css/app.css')
+    .pipe(
+      plumber({
+        errorHandler: errorHandler, // eslint-disable-line
+      }),
+    )
     .pipe(gulpif(isDev, sourcemaps.init()))
-    .pipe(postcss([
-      atImport,
-      normalize,
-      cssnext,
-      precss,
-      mqpacker({
-        sort: true,
-      }),
-      fontMagic({
-        formats: 'woff2 woff',
-      }),
-      flexbugs,
-    ]))
+    .pipe(
+      postcss([
+        atImport,
+        normalize,
+        cssnext,
+        precss,
+        mqpacker({
+          sort: true,
+        }),
+        fontMagic({
+          formats: 'woff2 woff',
+        }),
+        flexbugs,
+      ]),
+    )
     .pipe(gulpif(isDev, sourcemaps.write()))
     .pipe(gulpif(!isDev, cssnano()))
     .pipe(gulp.dest('build/css'));

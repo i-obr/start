@@ -11,5 +11,4 @@ function server() {
   bs.watch('build/**/*.*').on('change', bs.reload);
 }
 
-
 export default server;

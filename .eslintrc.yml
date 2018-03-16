@@ -11,10 +11,18 @@ parserOptions:
   sourceType: module
 
 extends:
-  - 'airbnb-base'
+  - airbnb-base
+  - prettier
   - plugin:import/errors
   - plugin:import/warnings
+
+plugins:
+  - prettier
 
 rules:
   no-console: 0
   import/no-extraneous-dependencies: [error, { devDependencies: true }]
+  prettier/prettier:
+    - error
+    - singleQuote: true
+      trailingComma: all

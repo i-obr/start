@@ -17,12 +17,14 @@ export default {
   devtool: NODE_ENV === 'development' ? 'cheap-inline-module-source-map' : null,
 
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /(node_modules)/,
-      use: {
-        loader: 'babel-loader',
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+        },
       },
-    }],
+    ],
   },
 };

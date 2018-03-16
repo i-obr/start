@@ -2,7 +2,6 @@ import _ from 'lodash';
 import module1 from './module1';
 import module2 from './module2';
 
-
 const propertyActions = [
   {
     name: 'body',
@@ -18,7 +17,8 @@ const propertyActions = [
   },
 ];
 
-const getPropertyAction = arg => _.find(propertyActions, ({ check }) => check(arg));
+const getPropertyAction = arg =>
+  _.find(propertyActions, ({ check }) => check(arg));
 
 console.log(getPropertyAction('children'));
 module1();
