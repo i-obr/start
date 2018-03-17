@@ -1,1 +1,1 @@
-export default () => console.log('moduel 2');
+export default () => console.log('module 2');
