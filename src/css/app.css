@@ -1,42 +1,38 @@
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
+body {
   padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap; /*1 */
-}
-
-h1 {
+  margin: 0;
+  height: 100vh;
+  box-sizing: border-box;
   font-family: Alice, sans-serif;
-  font-weight: 700;
-  line-height: 1;
-  font-size: 300px;
-
-  text-align: center;
-
-  transition-duration: 0.3s;
 }
 
-.autoprefixer {
+.content {
+  outline: 1px solid red;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.field {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  filter: blur(5px);
-}
+  align-items: center;
 
-.cssnext {
-  background: color(rgb(255, 0, 0) alpha(-10%));
 
-  /* background: blue; */
-}
+  label,
+  input {
+    font-size: 32px;
+    font-family: Alice, sans-serif;
+  }
 
-.precss {
-  @if 3 < 5 {
-    background: #008000;
-  } @else {
-    background: #00f;
+  label {
+    margin-right: 16px;
+  }
+
+  input {
+    flex-grow: 1;
   }
 }

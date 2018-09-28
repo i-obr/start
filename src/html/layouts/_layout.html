@@ -8,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#fff">
     <meta name="format-detection" content="telephone=no">
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@18.8.0/dist/css/suggestions.min.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" media="all" href="css/app.css">
   </head>
   <body>
-    <div class="visually-hidden">
-      <!-- inject:svg --><!-- endinject -->
-    </div>
     <div class="content">
       {% block content %}{% endblock %}
     </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/suggestions-jquery@18.8.0/dist/js/jquery.suggestions.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>
